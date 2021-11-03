@@ -10,5 +10,6 @@ Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login'])->name('singin');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/test', function () {
-    $address = WalletHelpers::bitcoinAddress();
+    $user = \App\Models\User::find(15);
+    dd(\App\Models\Box::find(4)->boughtHints($user)->get());
 });

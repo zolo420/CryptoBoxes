@@ -98,6 +98,10 @@ class Box extends Model
         return $this->paymentHistory()->distinct('user_id')->count();
     }
 
+    public function boughtHints(User $user)
+    {
+        return $user->boughtHints()->whereIn('id', $this->hints()->get(['id'])->map(function ($el) { return $el->id; })->toArray())->get();
+    }
 
     public function getFrontData(): array
     {

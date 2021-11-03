@@ -112,5 +112,10 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany(BoxPaymentHistory::class);
     }
+
+    public function boughtHints()
+    {
+        return $this->belongsToMany(Hints::class, 'user_hints','user_id', 'hint_id')->where('user_id', $this->id);
+    }
 }
 
