@@ -104,6 +104,22 @@
 
                             <section>
 
+                                {!! Form::label('users_for_open', 'Кол-во пользователей*', ['class' => 'label']) !!}
+
+                                <label class="input">
+
+                                    {!! Form::text('users_for_open', old('users_for_open', isset($row) ? $row->users_for_open : ''), ['class' => 'form-control', 'autocomplete' => 'off']) !!}
+
+                                </label>
+
+                                @if ($errors->has('users_for_open'))
+                                    <p class="text-danger">{{ $errors->first('users_for_open') }}</p>
+                                @endif
+
+                            </section>
+
+                            <section>
+
                                 {!! Form::label('description', 'Описание', ['class' => 'label']) !!}
 
                                 <label class="textarea textarea-resizable">

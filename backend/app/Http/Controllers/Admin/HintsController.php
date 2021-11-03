@@ -36,6 +36,7 @@ class HintsController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'price' => 'required|integer',
+            'users_for_open' => 'required|integer|min:0',
             'icon' => 'image|mimes:jpeg,jpg,gif,png|max:2048|nullable',
         ]);
 
@@ -81,6 +82,7 @@ class HintsController extends Controller
         $rules = [
             'name' => 'required',
             'price' => 'required|integer',
+            'users_for_open' => 'required|integer|min:0',
             'icon' => 'image|mimes:jpeg,jpg,gif,png|max:2048|nullable',
         ];
 
@@ -92,6 +94,7 @@ class HintsController extends Controller
         $hint->name = $request->name;
         $hint->description = $request->description;
         $hint->price = $request->price;
+        $hint->users_for_open = $request->users_for_open;
         $pic = $request->file('icon');
 
         if (isset($pic)) {

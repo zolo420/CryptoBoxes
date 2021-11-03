@@ -93,6 +93,12 @@ class Box extends Model
         return $this->hasMany(BoxPaymentHistory::class);
     }
 
+    public function getParticipantsNumber()
+    {
+        return $this->paymentHistory()->distinct('user_id')->count();
+    }
+
+
     public function getFrontData(): array
     {
         $seed = $this->seed;
@@ -103,7 +109,8 @@ class Box extends Model
             'address'      => $this->address,
             'seed'         => $seed,
             'bank'         => $this->starting_bank,
-            'participants' => $this->paymentHistory()->distinct('user_id')->count(),
+            'participants' => $this->getParticipantsNumber(),
+            'hints'        => $this->hints()->get(),
         ];
     }
 }

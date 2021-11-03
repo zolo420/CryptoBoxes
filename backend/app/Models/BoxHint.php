@@ -9,6 +9,8 @@ class BoxHint extends Model
 
     protected $table = 'box_hint';
 
+    protected $primaryKey = null;
+    public $incrementing = false;
     public $timestamps = false;
 
     protected $fillable = [

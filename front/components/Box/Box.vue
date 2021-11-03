@@ -176,7 +176,7 @@ export default {
       }
     },
     currentIcon() {
-      return this.currency === 'bitcoin' ? 'bitcoin' : 'ethereum'
+      return this.box.currency === 'bitcoin' ? 'bitcoin' : 'ethereum'
     },
     currentBackgroundLine() {
       switch (this.type) {

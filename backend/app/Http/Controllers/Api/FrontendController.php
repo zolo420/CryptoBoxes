@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Models\{Box};
+use App\Models\{Box, Hints};
 use Illuminate\Http\JsonResponse;
 use App\Helpers\{WalletHelpers};
 use App\Http\Requests\Api\Frontend\CurrencyConvertRequest;

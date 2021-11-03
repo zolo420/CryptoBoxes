@@ -199,7 +199,7 @@ class BoxController extends Controller
         $total = BoxPaymentHistory::where('box_id', $id)->where('win', 0)->sum('payment_usd');
         $total_income = BoxPaymentHistory::where('box_id', $id)->where('win', 1)->sum('payment_usd');
 
-        $income = $total_income * 100 / $total;
+        $income = $total_income * 100 / max(1, $total);
         $income = round($income, 2);
         $current_income = 100 - round($income, 2);
 

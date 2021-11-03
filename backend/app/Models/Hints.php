@@ -16,6 +16,7 @@ class Hints extends Model
         'name',
         'price',
         'description',
+        'users_for_open',
         'icon',
     ];
 

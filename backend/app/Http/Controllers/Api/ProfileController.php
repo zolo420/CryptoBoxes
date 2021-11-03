@@ -21,7 +21,7 @@ use App\Http\Requests\Api\Profile\{
     WithdrawalRequest,
 };
 use Illuminate\Http\Response;
-use App\Models\{EmailInvitation, TransactionHistory, Wallet, Box, BoxPaymentHistory, Bonus};
+use App\Models\{EmailInvitation, Hints, TransactionHistory, Wallet, Box, BoxPaymentHistory, Bonus};
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use App\Helpers\{StringHelpers, WalletHelpers};
@@ -444,4 +444,42 @@ class ProfileController extends Controller
         })]);
     }
 
+
+    public function buyHint(Box $box, Hints $hint)
+    {
+        if ( $box->hints()->get()->contains($hint) ) {
+            $balance = Wallet::where('user_id', $this->user->id)->where('cryptocurrency', $box->cryptocurrency)->sum('balance');
+            $price = WalletHelpers::convert($box->cryptocurrency, $hint->price, 'usd');
+            if ($balance < $price) return response()->json(['error' => 'На вашем кошельке недостаточно средств'], Response::HTTP_BAD_REQUEST);
+
+            $wallet = Wallet::where('user_id', $this->user->id)->where('cryptocurrency', $box->cryptocurrency)->first();
+            $wallet->balance = $wallet->balance - $price;
+
+            TransactionHistory::create([
+                'wallet_id' => $wallet->id,
+                'user_id' => $this->user->id,
+                'amount' => $price,
+                'receiver_address' => $wallet->address,
+                'address_type' => $box->cryptocurrency,
+                'transaction_type' => TransactionHistory::TRANSACTION_WRITEOFF,
+            ]);
+
+            $wallet->save();
+
+            $boxPayment = BoxPaymentHistory::create([
+                'user_id' => $this->user->id,
+                'box_id' => $box->id,
+                'seed' => [],
+                'win' => 0,
+                'payment' => $price,
+                'payment_usd' => $hint->price,
+                'cryptocurrency' => $box->cryptocurrency,
+            ]);
+            if ($box->cryptocurrency == 'btc') dispatch(new SendMoneyBTC($boxPayment));
+            elseif ($box->cryptocurrency == 'eth') dispatch(new SendMoneyETH($boxPayment));
+            return response()->json(['status' => 'ok']);
+
+        }
+        return response()->json(['error' => 'hint not found', 422]);
+    }
 }

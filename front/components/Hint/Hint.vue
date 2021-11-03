@@ -2,8 +2,8 @@
   <div v-if="hint" class="hint">
     <div class="hint__top">
       <div class="hint__title">
-        <Icon :icon-name="hint.icon" fill="none" />
-        {{ hint.title }}
+        <Icon v-if="hint.icon" :icon-name="hint.icon" fill="none" />
+        {{ hint.name }}
       </div>
       <div class="hint__price">За {{ hint.price }}$</div>
     </div>
@@ -13,6 +13,7 @@
         :large="$breakpoints.width > 414"
         :small="$breakpoints.width < 375"
         class="hint__pay"
+        :disabled="participants < hint.users_for_open"
         @click="$emit('pay-hint', hint)"
       >
         Купить
@@ -20,6 +21,7 @@
       <Button
         outline
         dark
+        :disabled="participants < hint.users_for_open"
         :large="$breakpoints.width > 414"
         :small="$breakpoints.width < 375"
       >
@@ -39,6 +41,10 @@ export default {
     hint: {
       type: Object,
       default: null,
+    },
+    participants: {
+      type: Number,
+      default: 0,
     },
   },
 }

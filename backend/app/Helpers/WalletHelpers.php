@@ -25,14 +25,14 @@ class WalletHelpers
      */
     public static function convert($currentcurrency, $rate, $currency)
     {
-        $rate_array = Redis::get($currentcurrency);
+        $rate_array = \Cache::get($currentcurrency);
 
         if ($rate_array == null) {
             $rate_array = \App\Helpers\StringHelpers::getCurrencyRate($currentcurrency);
 
             if (!isset($rate_array)) throw new \Exception('Сервис недоступен');
 
-            Redis::set($currentcurrency, json_encode($rate_array), 'EX', 15);
+            \Cache::set($currentcurrency, json_encode($rate_array), 'EX', 15);
         }
 
         if (!is_array($rate_array)) $rate_array = json_decode($rate_array, true);
@@ -49,14 +49,14 @@ class WalletHelpers
      */
     public static function RateCurrency($currency)
     {
-        $rate_array = Redis::get($currency);
+        $rate_array = \Cache::get($currency);
 
         if ($rate_array == null) {
             $rate_array = \App\Helpers\StringHelpers::getCurrencyRate($currency);
 
             if (!isset($rate_array)) throw new \Exception('Сервис недоступен');
 
-            Redis::set($currency,json_encode($rate_array), 'EX', 15);
+            \Cache::set($currency,json_encode($rate_array), 'EX', 15);
         }
 
         if (!is_array($rate_array)) $rate_array = json_decode($rate_array, true);

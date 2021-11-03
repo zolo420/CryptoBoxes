@@ -62,12 +62,7 @@
               {{ i }}
             </div>
           </div>
-          <draggable
-            class="product__dragdrop"
-            :list="newWords"
-            group="words"
-            :move="true"
-          >
+          <draggable class="product__dragdrop" :list="newWords" group="words">
             <div
               v-for="el in newWords"
               :key="el.id"
@@ -95,6 +90,8 @@
           <Button
             :small="$breakpoints.width <= 768"
             :large="$breakpoints.width > 768"
+            :disabled="words.length !== 0"
+            @click="makeAttempt"
           >
             Узнать результат
           </Button>
@@ -122,6 +119,7 @@
           v-for="hint in hints"
           :key="hint.id"
           :hint="hint"
+          :participants="participants"
           class="product__hint"
           @pay-hint="payHint"
         />
@@ -152,64 +150,7 @@ export default {
       bank: 0,
       address: '',
       participants: 0,
-      hints: [
-        {
-          id: 1,
-          icon: 'key',
-          title: 'Одно слово на своём месте',
-          price: 1,
-          text: `Данную подсказку можно купить сразу, как количество участников достигнет <span>100 человек</span>. В стоимость подсказки включено 12 попыток.`,
-        },
-        {
-          id: 2,
-          icon: 'smille',
-          title: 'Два слова на своих местах',
-          price: 7,
-          text: `Данную подсказку можно купить сразу, как количество участников достигнет <span>200 человек</span>. В стоимость подсказки включено 12 попыток.`,
-        },
-        {
-          id: 3,
-          icon: 'like',
-          title: 'Три слова на своих местах',
-          price: 15,
-          text: `Данную подсказку можно купить сразу, как количество участников достигнет <span>300 человек</span>. В стоимость подсказки включено 12 попыток.`,
-        },
-        {
-          id: 4,
-          icon: 'electro',
-          title: 'Четыре слова на своих местах',
-          price: 27,
-          text: `Данную подсказку можно купить сразу, как количество участников достигнет <span>400 человек</span>. В стоимость подсказки включено 12 попыток.`,
-        },
-        {
-          id: 5,
-          icon: 'star',
-          title: 'Пять слов на своих местах',
-          price: 48,
-          text: `Данную подсказку можно купить сразу, как количество участников достигнет <span>500 человек</span>. В стоимость подсказки включено 12 попыток.`,
-        },
-        {
-          id: 6,
-          icon: 'notification',
-          title: 'Шесть слов на своих местах',
-          price: 65,
-          text: `Данную подсказку можно купить сразу, как количество участников достигнет <span>600 человек</span>. В стоимость подсказки включено 12 попыток.`,
-        },
-        {
-          id: 7,
-          icon: 'medal',
-          title: 'Семь слов на своих местах',
-          price: 99,
-          text: `Данную подсказку можно купить сразу, как количество участников достигнет <span>700 человек</span>. В стоимость подсказки включено 12 попыток.`,
-        },
-        {
-          id: 8,
-          icon: 'sun',
-          title: 'Восемь слов на своих местах',
-          price: 150,
-          text: `Данную подсказку можно купить сразу, как количество участников достигнет 800 человек. В стоимость подсказки включено 12 попыток.`,
-        },
-      ],
+      hints: [],
     }
   },
   mounted() {
@@ -218,6 +159,7 @@ export default {
         this.words.push({ id: ix, title: res.data.seed[ix] })
       this.bank = res.data.bank
       this.address = res.data.address
+      this.hints = res.data.hints
       this.participants = res.data.participants
     })
   },
@@ -225,11 +167,32 @@ export default {
     payHint(hint) {
       // eslint-disable-next-line no-console
       console.log(hint)
+      this.$axios
+        .post(`/profile/buy-hint/${this.$route.params.id}/${hint.id}`)
+        .then(() => {
+          location.reload()
+        })
+        .catch(() => {
+          console.log('hint error')
+        })
     },
     openModal() {
       this.$store.commit('modals/SET_MODAL', {
         name: 'invite',
       })
+    },
+    makeAttempt() {
+      this.$axios
+        .post('/profile/buy-box', {
+          box_id: this.$route.params.id,
+          seed: this.newWords,
+        })
+        .then((res) => {
+          console.log(res.data)
+        })
+        .catch((err) => {
+          console.log(err.toJSON())
+        })
     },
   },
 }

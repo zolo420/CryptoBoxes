@@ -39,6 +39,7 @@ Route::group(['prefix' => 'profile'], function () {
     Route::get('box-payment-history', [ProfileController::class, 'getBoxPaymentHistory'])->name('api.profile.box_payment_history');
     // запрос на покупку бокса
     Route::post('buy-box', [ProfileController::class, 'buyBox'])->name('api.profile.buy_box');
+    Route::post('buy-hint/{box}/{hint}', [ProfileController::class, 'buyHint'])->name('api.profile.buy_hint');
     // количество бонусов
     Route::get('bonus', [ProfileController::class, 'bonus'])->name('api.profile.bonus');
     //wap

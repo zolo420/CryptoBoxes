@@ -47,8 +47,8 @@ export default {
       menuList: [
         { id: 1, title: 'HARD BOXES', path: '/#hard', isScroll: true },
         { id: 2, title: 'EASY BOXES', path: '/#easy', isScroll: true },
-        { id: 2, title: 'QUEST BOXES', path: '/#quest', isScroll: true },
-        { id: 3, title: 'БАЛАНС', path: '/profile/balance' },
+        { id: 3, title: 'QUEST BOXES', path: '/#quest', isScroll: true },
+        { id: 4, title: 'БАЛАНС', path: '/profile/balance' },
       ],
     }
   },
