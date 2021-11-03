@@ -95,4 +95,9 @@ class FrontendController extends Controller
 
         return response()->json(['items' => $items]);
     }
+
+    public function boxInfo(Box $box)
+    {
+        return response()->json($box->getFrontData());
+    }
 }

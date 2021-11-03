@@ -5,7 +5,7 @@
         <div class="product__line">
           <div class="product__text">
             <div v-if="$breakpoints.width > 576" class="product__price">
-              0,394
+              {{ bank }}
               <Icon
                 icon-name="bitcoin"
                 :width="$breakpoints.width <= 768 ? 18 : 34"
@@ -16,12 +16,12 @@
               <div class="product__currency">Bitcoin</div>
               <div class="product__number">
                 <span>№ </span>
-                0xqd...fx56
+                {{ address }}
               </div>
               <div class="product__type">HARD BOXES</div>
               <div class="product__count">
                 Количество участников
-                <strong>201</strong>
+                <strong>{{ participants }}</strong>
               </div>
             </div>
           </div>
@@ -58,7 +58,9 @@
       <div class="product__wrap">
         <div class="product__block">
           <div class="product__dragdrop product__dragdrop--back">
-            <div v-for="i in 12" :key="i" class="product__item">{{ i }}</div>
+            <div v-for="i in words.length" :key="i" class="product__item">
+              {{ i }}
+            </div>
           </div>
           <draggable
             class="product__dragdrop"
@@ -146,20 +148,10 @@ export default {
       countStart: 1,
       countMax: 15,
       newWords: [],
-      words: [
-        { id: 1, title: 'world' },
-        { id: 2, title: 'hello' },
-        { id: 3, title: 'last' },
-        { id: 4, title: 'down' },
-        { id: 5, title: 'sun' },
-        { id: 6, title: 'phone' },
-        { id: 7, title: 'ready' },
-        { id: 8, title: 'car' },
-        { id: 9, title: 'watch' },
-        { id: 10, title: 'together' },
-        { id: 11, title: 'street' },
-        { id: 12, title: 'cat' },
-      ],
+      words: [],
+      bank: 0,
+      address: '',
+      participants: 0,
       hints: [
         {
           id: 1,
@@ -220,7 +212,15 @@ export default {
       ],
     }
   },
-
+  mounted() {
+    this.$axios.get('/box-info/' + this.$route.params.id).then((res) => {
+      for (const ix in res.data.seed)
+        this.words.push({ id: ix, title: res.data.seed[ix] })
+      this.bank = res.data.bank
+      this.address = res.data.address
+      this.participants = res.data.participants
+    })
+  },
   methods: {
     payHint(hint) {
       // eslint-disable-next-line no-console

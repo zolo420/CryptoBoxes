@@ -36,8 +36,8 @@ class Box extends Model
     ];
 
     public static $box_name = [
-        self::HARD_BOX => 'Hard-box',
-        self::EASY_BOX => 'Easy-box',
+        self::HARD_BOX  => 'Hard-box',
+        self::EASY_BOX  => 'Easy-box',
         self::QUEST_BOX => 'Quest-box',
     ];
 
@@ -69,8 +69,9 @@ class Box extends Model
     public static function seeds(): array
     {
         $seeds = explode(',', SettingsHelpers::getSetting('seed_list'));
-        if ( $seeds )
+        if ( $seeds ) {
             return $seeds;
+        }
         return [
             'world',
             'hello',
@@ -84,6 +85,25 @@ class Box extends Model
             'together',
             'street',
             'cat',
+        ];
+    }
+
+    public function paymentHistory()
+    {
+        return $this->hasMany(BoxPaymentHistory::class);
+    }
+
+    public function getFrontData(): array
+    {
+        $seed = $this->seed;
+        shuffle($seed);
+        return [
+            'id'           => $this->id,
+            'price'        => $this->price,
+            'address'      => $this->address,
+            'seed'         => $seed,
+            'bank'         => $this->starting_bank,
+            'participants' => $this->paymentHistory()->distinct('user_id')->count(),
         ];
     }
 }

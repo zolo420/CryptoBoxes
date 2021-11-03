@@ -104,7 +104,7 @@
       </div>
 
       <div class="Box__btn">
-        <Button>Открыть за {{ box.price }}$</Button>
+        <Button @click="openBoxPage">Открыть за {{ box.price }}$</Button>
       </div>
       <div class="Box__number">
         №
@@ -211,6 +211,9 @@ export default {
       if (!this.isOpen) {
         this.isVisible = true
       }
+    },
+    openBoxPage() {
+      this.$router.push('/box/' + this.box.id)
     },
   },
 }

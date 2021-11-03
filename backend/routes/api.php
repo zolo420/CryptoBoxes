@@ -58,6 +58,7 @@ Route::post('convert-to-btc', [FrontendController::class, 'convertToBTC'])->name
 Route::post('convert-to-eth', [FrontendController::class, 'convertToETH'])->name('api.frontend.convert_to_eth');
 
 Route::get('box-list', [FrontendController::class, 'boxList'])->name('api.frontend.box_list');
+Route::get('box-info/{box}', [FrontendController::class, 'boxInfo'])->name('api.frontend.box_info');
 
 
 Route::get('seed-list', [FrontendController::class, 'seedList'])->name('api.frontend.seed_list');
