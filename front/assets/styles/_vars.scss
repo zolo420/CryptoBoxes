@@ -1,0 +1,44 @@
+/**
+ * Variables
+ */
+
+// Color system
+$assets-dir: '../' !default;
+
+$white: #fff !default;
+$black: #000 !default;
+$dark: #242230 !default;
+
+$blue: #323e95 !default;
+$orange: #fe4d17 !default;
+$blue-100: #4854af !default;
+
+$gray: #b0b0b0 !default;
+$gray-100: #f2f2f2 !default;
+
+$red: #fe4d17 !default;
+$green: #38bf4d !default;
+
+// Typography
+// Font, line-height, and color for body text, headings, and more.
+
+$PTMono: 'PT Mono', sans-serif !default;
+$font-family-base: 'Arial', sans-serif !default;
+
+$font-size-base: 16px !default; // Assumes the browser default, typically `16px`
+$font-size-lg: 18px !default;
+$font-size-sm: 14px !default;
+
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+$font-weight-bolder: bolder !default;
+
+$font-weight-base: $font-weight-normal !default;
+
+$line-height-base: 120% !default;
+$line-height-lg: 140% !default;
+$line-height-sm: 100% !default;
+
+$gap: 20px;

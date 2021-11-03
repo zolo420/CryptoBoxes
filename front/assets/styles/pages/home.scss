@@ -1,0 +1,250 @@
+.Home {
+  padding: 0 0 100px;
+
+  &__category {
+    padding: 40px 0 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @include tablet {
+      padding: 40px 0 80px;
+    }
+
+    @include rwd(700) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+    }
+
+    @include xmobile {
+      padding: 40px 0;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 45px;
+    @include rwd(700) {
+      margin: 0 -20px 40px;
+      padding: 0 20px;
+      overflow: auto;
+    }
+  }
+
+  &__show {
+    width: calc(25% - 15px);
+  }
+
+  &__hide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #edecf4;
+    min-height: 42px;
+    padding: 9px 20px;
+    width: 100%;
+    border: 1px solid #edecf4;
+    svg {
+      margin-right: 10px;
+    }
+  }
+  &__line {
+    display: flex;
+    align-items: center;
+    width: calc(75% - 15px);
+
+    @include widescreen {
+      width: 100%;
+    }
+  }
+
+  &__switcher {
+    margin: 0;
+  }
+
+  &__switch {
+    @include desktop {
+      font-size: 14px;
+    }
+    @include rwd(700) {
+      padding: 12px 20px;
+      white-space: nowrap;
+    }
+  }
+
+  &__all {
+    margin-left: auto;
+
+    // @include rwd(700) {
+    //   min-height: 50px;
+    //   margin-left: 0;
+    //   white-space: nowrap;
+    // }
+  }
+
+  &__products {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  &__grid {
+    width: calc(75% - 15px);
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+    @include desktop {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &--fluid {
+      padding: 0;
+      width: 100%;
+      grid-template-columns: repeat(4, 1fr);
+      @include desktop {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include rwd(700) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      @include xmobile {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+      }
+    }
+  }
+  &__filter {
+    width: calc(25% - 15px);
+  }
+
+  &__load {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 120%;
+    color: $dark;
+    // border-bottom: 1px solid $dark;
+    text-decoration: underline;
+    padding: 0;
+    @extend %transition;
+
+    &:hover {
+      border-color: transparent;
+    }
+
+    @include retina {
+      max-width: 50%;
+      text-align: left;
+    }
+  }
+
+  &__news {
+    margin-top: 100px;
+  }
+
+  &__composition {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 100px;
+
+    @include tablet {
+      margin-bottom: 80px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include rwd(700) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__item {
+    min-height: 180px;
+    &:first-child {
+      grid-column: 1/3;
+      grid-row: 1/3;
+      &:hover {
+        box-shadow: none;
+      }
+
+      @include rwd(700) {
+        grid-column: 1/-1;
+        grid-row: 1/1;
+      }
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  &__subtitle {
+    margin-bottom: 0;
+    // @include rwd(700) {
+    //   margin-bottom: 40px;
+    // }
+  }
+
+  &__more {
+    margin-left: auto;
+    @include rwd(700) {
+      margin: 0;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    @include rwd(700) {
+      margin-top: 30px;
+      justify-content: space-between;
+    }
+  }
+
+  &__prev,
+  &__next {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    background-color: $white;
+    border: 1px solid #edecf4;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    transform: translateY(0);
+    &::after {
+      display: none;
+    }
+  }
+
+  &__prev {
+    left: 0;
+    margin-left: 30px;
+    @include rwd(700) {
+      margin: 0;
+    }
+  }
+
+  &__next {
+    right: 0;
+    margin-left: 15px;
+    @include rwd(700) {
+      margin: 0;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

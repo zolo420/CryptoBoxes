@@ -1,0 +1,16 @@
+.wrapper-content {
+  @include desktop {
+    display: grid;
+    grid-template-areas:
+    "nav header"
+    "nav content";
+    grid-template-columns: 450px auto;
+    grid-template-rows: 180px auto;
+  }
+  @include fullhd {
+    grid-template-areas:
+    "nav header   header"
+    "nav content  right";
+    grid-template-columns: 450px auto 500px;
+  }
+}

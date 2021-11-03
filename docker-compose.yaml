@@ -1,0 +1,69 @@
+version: '3'
+
+services:
+    back:
+      build:
+        context: backend
+        dockerfile: Dockerfile
+      container_name: back
+      restart: unless-stopped
+      tty: true
+      working_dir: /var/www
+      volumes:
+        - ./backend:/var/www
+      networks:
+        - app-network
+      depends_on:
+        - db
+        - nginx
+
+    front:
+      build:
+        context: front
+        dockerfile: Dockerfile
+      container_name: front
+      restart: unless-stopped
+      tty: true
+      working_dir: /var/www/web
+      volumes:
+        - ./front:/var/www/web
+      networks:
+        - app-network
+      depends_on:
+        - db
+        - nginx
+
+    db:
+      image: postgres
+      container_name: db
+      restart: unless-stopped
+      tty: true
+      env_file:
+        - ./.db.env
+      volumes:
+        - postgres_data:/var/lib/postgresql/data/
+      networks:
+        - app-network
+
+    nginx:
+      image: nginx:alpine
+      container_name: nginx
+      restart: unless-stopped
+      tty: true
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - ./backend:/var/www
+        - ./nginx/conf.d/:/etc/nginx/conf.d/
+        - ./nginx/logs:/var/log/nginx
+      networks:
+        - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local

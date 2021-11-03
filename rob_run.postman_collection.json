@@ -1,0 +1,1214 @@
+{
+	"info": {
+		"_postman_id": "bd2bbc3b-a74e-4547-b34b-55f92c4b6df7",
+		"name": "improover",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Api",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "/api/auth/login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "janickiy@mail.ru",
+											"description": "логин (email пользователя при авторизации)",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "1234567",
+											"description": "пароль",
+											"type": "text"
+										},
+										{
+											"key": "remember",
+											"value": "on",
+											"description": "запомнить меня",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								},
+								"description": "Авторизация"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/auth/reset",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "token",
+											"value": "490bb58e-45a4-485e-8e22-4e27e83d56c1",
+											"description": "токен",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "1234567",
+											"description": "пароль",
+											"type": "text"
+										},
+										{
+											"key": "confirm_password",
+											"value": "1234567",
+											"description": "павтор пароля",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/auth/reset",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"auth",
+										"reset"
+									]
+								},
+								"description": "Сброс пароля"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/auth/email-confirm",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "token",
+											"value": "babda4a1-20ea-45a6-b5fe-e5fd2e0cef89",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/auth/email-confirm",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"auth",
+										"email-confirm"
+									]
+								},
+								"description": "Подтвердить регистрацию"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/auth/forgot-password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "janickiy@mail.ru",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/auth/forgot-password",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"auth",
+										"forgot-password"
+									]
+								},
+								"description": "Восстановление забытого пароля"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/auth/registration",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "janickiy@mail.ru",
+											"description": "email",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Александр",
+											"description": "Имя пользоватля",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "1234567",
+											"description": "пароль",
+											"type": "text"
+										},
+										{
+											"key": "confirm_password",
+											"value": "1234567",
+											"description": "повтор пароля",
+											"type": "text"
+										},
+										{
+											"key": "referrer",
+											"value": "6b7c81ec-e3ea-4829-a4ef-30bd189f71f7",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://site4.loc/api/auth/registration",
+									"protocol": "http",
+									"host": [
+										"site4",
+										"loc"
+									],
+									"path": [
+										"api",
+										"auth",
+										"registration"
+									]
+								},
+								"description": "Регистрация"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/auth/info",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9kaWdpdGFsLXRlc3QuZnVuXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjI2Nzk0NTI1LCJleHAiOjE2NTgzMzA1MjUsIm5iZiI6MTYyNjc5NDUyNSwianRpIjoiZUdtZ2tYZVJzYXlPYVM3ZCIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.IRr1DMbkwjoExuyE3LkkDK5Il_HTEWAKlc8acHcmho0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://digital-test.fun/api/auth/info",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"auth",
+										"info"
+									]
+								},
+								"description": "Данные пользователя"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/auth/logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9zaXRlNS5sb2NcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MjU3MDA5NzEsImV4cCI6MTY1NzIzNjk3MSwibmJmIjoxNjI1NzAwOTcxLCJqdGkiOiJFRFpXMUxRZGdscHd3ZTlFIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.fnK0Bq7jiEPcNZizSXzYNYu6t-8Foabb5j4eUrUFW5A",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://digital-test.fun/api/auth/logout",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"auth",
+										"logout"
+									]
+								},
+								"description": "Выход из системы"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "profile",
+					"item": [
+						{
+							"name": "/api/profile/send-invitation",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9kaWdpdGFsLXRlc3QuZnVuXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjI2Nzk0NTI1LCJleHAiOjE2NTgzMzA1MjUsIm5iZiI6MTYyNjc5NDUyNSwianRpIjoiZUdtZ2tYZVJzYXlPYVM3ZCIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.IRr1DMbkwjoExuyE3LkkDK5Il_HTEWAKlc8acHcmho0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "yalexander88@yandex.ru",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/profile/send-invitation",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"profile",
+										"send-invitation"
+									]
+								},
+								"description": "пригласить друга"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/profile/box-payment-history",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9kaWdpdGFsLXRlc3QuZnVuXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjI2Nzk0NTI1LCJleHAiOjE2NTgzMzA1MjUsIm5iZiI6MTYyNjc5NDUyNSwianRpIjoiZUdtZ2tYZVJzYXlPYVM3ZCIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.IRr1DMbkwjoExuyE3LkkDK5Il_HTEWAKlc8acHcmho0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "page",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/profile/box-payment-history",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"profile",
+										"box-payment-history"
+									]
+								},
+								"description": "Регистрация"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/profile/balance/btc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9zaXRlNS5sb2NcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MjU3MDMwMzIsImV4cCI6MTY1NzIzOTAzMiwibmJmIjoxNjI1NzAzMDMyLCJqdGkiOiJFMnZpYjVuN3V5NlNvYWNwIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.3H3msvblVZhurJU_xAjrFDVs4GKJlv2xJAvjXNwCoiU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/profile/balance/btc",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"profile",
+										"balance",
+										"btc"
+									]
+								},
+								"description": "Регистрация"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/profile/invitation-history",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9zaXRlNS5sb2NcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MjU3MDMwMzIsImV4cCI6MTY1NzIzOTAzMiwibmJmIjoxNjI1NzAzMDMyLCJqdGkiOiJFMnZpYjVuN3V5NlNvYWNwIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.3H3msvblVZhurJU_xAjrFDVs4GKJlv2xJAvjXNwCoiU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/profile/invitation-history",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"profile",
+										"invitation-history"
+									]
+								},
+								"description": "История приглашений"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/profile/balance/transaction_history",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9kaWdpdGFsLXRlc3QuZnVuXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjI2Nzk0NTI1LCJleHAiOjE2NTgzMzA1MjUsIm5iZiI6MTYyNjc5NDUyNSwianRpIjoiZUdtZ2tYZVJzYXlPYVM3ZCIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.IRr1DMbkwjoExuyE3LkkDK5Il_HTEWAKlc8acHcmho0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/profile/transaction_history",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"profile",
+										"transaction_history"
+									]
+								},
+								"description": "Регистрация"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/profile/buy-box",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9kaWdpdGFsLXRlc3QuZnVuXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjI2Nzk0NTI1LCJleHAiOjE2NTgzMzA1MjUsIm5iZiI6MTYyNjc5NDUyNSwianRpIjoiZUdtZ2tYZVJzYXlPYVM3ZCIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.IRr1DMbkwjoExuyE3LkkDK5Il_HTEWAKlc8acHcmho0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "box_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "seed",
+											"value": "world,hello,down",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/profile/buy-box",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"profile",
+										"buy-box"
+									]
+								},
+								"description": "Регистрация"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/profile/swap",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9kaWdpdGFsLXRlc3QuZnVuXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjI2Nzk0NTI1LCJleHAiOjE2NTgzMzA1MjUsIm5iZiI6MTYyNjc5NDUyNSwianRpIjoiZUdtZ2tYZVJzYXlPYVM3ZCIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.IRr1DMbkwjoExuyE3LkkDK5Il_HTEWAKlc8acHcmho0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "amount",
+											"value": "0.0000423",
+											"type": "text"
+										},
+										{
+											"key": "to",
+											"value": "btc",
+											"type": "text"
+										},
+										{
+											"key": "from",
+											"value": "eth",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/profile/swap",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"profile",
+										"swap"
+									]
+								},
+								"description": "Свап между кошельками"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/profile/edit",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9kaWdpdGFsLXRlc3QuZnVuXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjI2Nzk0NTI1LCJleHAiOjE2NTgzMzA1MjUsIm5iZiI6MTYyNjc5NDUyNSwianRpIjoiZUdtZ2tYZVJzYXlPYVM3ZCIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.IRr1DMbkwjoExuyE3LkkDK5Il_HTEWAKlc8acHcmho0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "alexander",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "1234567",
+											"description": "новый пароль",
+											"type": "text"
+										},
+										{
+											"key": "password_again",
+											"value": "1234567",
+											"description": "повтор паролья",
+											"type": "text"
+										},
+										{
+											"key": "current_password",
+											"value": "123456799",
+											"description": "текущий пароль",
+											"type": "text"
+										},
+										{
+											"key": "id",
+											"value": "6",
+											"description": "id пользоваля",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "yalexander@yandex.ru",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/profile/edit",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"profile",
+										"edit"
+									]
+								},
+								"description": "Регистрация"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/profile/bonus",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9kaWdpdGFsLXRlc3QuZnVuXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjI2NzgzMDExLCJleHAiOjE2NTgzMTkwMTEsIm5iZiI6MTYyNjc4MzAxMSwianRpIjoidEltZGNlUXp0UzZaenBGdiIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.bGc7B6rIvbPu3PD76dB9juOL1t6a7xtBqzHkfmr_uDY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/profile/bonus",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"profile",
+										"bonus"
+									]
+								},
+								"description": "Регистрация"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/profile/wallets",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9kaWdpdGFsLXRlc3QuZnVuXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjI2Nzk0NTI1LCJleHAiOjE2NTgzMzA1MjUsIm5iZiI6MTYyNjc5NDUyNSwianRpIjoiZUdtZ2tYZVJzYXlPYVM3ZCIsInN1YiI6NiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.IRr1DMbkwjoExuyE3LkkDK5Il_HTEWAKlc8acHcmho0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/profile/wallets",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"profile",
+										"wallets"
+									]
+								},
+								"description": "Регистрация"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/profile/withdrawal",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9zaXRlNS5sb2NcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MjU3MDMwMzIsImV4cCI6MTY1NzIzOTAzMiwibmJmIjoxNjI1NzAzMDMyLCJqdGkiOiJFMnZpYjVuN3V5NlNvYWNwIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.3H3msvblVZhurJU_xAjrFDVs4GKJlv2xJAvjXNwCoiU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "cryptocurrency",
+											"value": "btc",
+											"type": "text"
+										},
+										{
+											"key": "amount",
+											"value": "0.003567",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "4e1c45599f667b4dc3604d69e43722d4ace6b770",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/profile/withdrawal",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"profile",
+										"withdrawal"
+									]
+								},
+								"description": "Регистрация"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "frontend",
+					"item": [
+						{
+							"name": "/api/rate-currency/eth",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9zaXRlNS5sb2NcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MjU3MDMwMzIsImV4cCI6MTY1NzIzOTAzMiwibmJmIjoxNjI1NzAzMDMyLCJqdGkiOiJFMnZpYjVuN3V5NlNvYWNwIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.3H3msvblVZhurJU_xAjrFDVs4GKJlv2xJAvjXNwCoiU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/rate-currency/eth",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"rate-currency",
+										"eth"
+									]
+								},
+								"description": "Регистрация"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/rate-currency/btc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9zaXRlNS5sb2NcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MjU3MDMwMzIsImV4cCI6MTY1NzIzOTAzMiwibmJmIjoxNjI1NzAzMDMyLCJqdGkiOiJFMnZpYjVuN3V5NlNvYWNwIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.3H3msvblVZhurJU_xAjrFDVs4GKJlv2xJAvjXNwCoiU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/rate-currency/btc",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"rate-currency",
+										"btc"
+									]
+								},
+								"description": "Регистрация"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/convert-to-btc",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9zaXRlNS5sb2NcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MjU3MDMwMzIsImV4cCI6MTY1NzIzOTAzMiwibmJmIjoxNjI1NzAzMDMyLCJqdGkiOiJFMnZpYjVuN3V5NlNvYWNwIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.3H3msvblVZhurJU_xAjrFDVs4GKJlv2xJAvjXNwCoiU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rate",
+											"value": "51",
+											"type": "text"
+										},
+										{
+											"key": "currency",
+											"value": "usd",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/convert-to-btc",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"convert-to-btc"
+									]
+								},
+								"description": "Регистрация"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/convert-to-eth",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9zaXRlNS5sb2NcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MjU3MDMwMzIsImV4cCI6MTY1NzIzOTAzMiwibmJmIjoxNjI1NzAzMDMyLCJqdGkiOiJFMnZpYjVuN3V5NlNvYWNwIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.3H3msvblVZhurJU_xAjrFDVs4GKJlv2xJAvjXNwCoiU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rate",
+											"value": "51",
+											"type": "text"
+										},
+										{
+											"key": "currency",
+											"value": "usd",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/convert-to-eth",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"convert-to-eth"
+									]
+								},
+								"description": "Регистрация"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/total-balance",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9zaXRlNS5sb2NcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MjU3MDMwMzIsImV4cCI6MTY1NzIzOTAzMiwibmJmIjoxNjI1NzAzMDMyLCJqdGkiOiJFMnZpYjVuN3V5NlNvYWNwIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.3H3msvblVZhurJU_xAjrFDVs4GKJlv2xJAvjXNwCoiU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "cryptocurrency",
+											"value": "eth",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/total-balance",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"total-balance"
+									]
+								},
+								"description": "Регистрация"
+							},
+							"response": []
+						},
+						{
+							"name": "/api/box-list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9zaXRlNS5sb2NcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE2MjU3MDMwMzIsImV4cCI6MTY1NzIzOTAzMiwibmJmIjoxNjI1NzAzMDMyLCJqdGkiOiJFMnZpYjVuN3V5NlNvYWNwIiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.3H3msvblVZhurJU_xAjrFDVs4GKJlv2xJAvjXNwCoiU",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://digital-test.fun/api/box-list",
+									"protocol": "http",
+									"host": [
+										"digital-test",
+										"fun"
+									],
+									"path": [
+										"api",
+										"box-list"
+									]
+								},
+								"description": "Список боксов"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

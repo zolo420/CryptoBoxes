@@ -1,0 +1,128 @@
+$main-size: 16px;
+$body-family: $font-family-base;
+$body-weight: $font-weight-base;
+$body-line-height: $line-height-base;
+$body-bg: $white;
+$body-size: $font-size-base;
+$body-color: $black;
+$header-family: $font-family-base;
+
+html {
+  font-size: $main-size;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  text-size-adjust: 100%;
+}
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section {
+  display: block;
+}
+
+h1,
+h2,
+header {
+  font-family: $header-family;
+}
+
+h1,
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  strong {
+    color: currentColor;
+  }
+}
+
+input,
+select,
+textarea,
+button {
+  @include form-item;
+  outline: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+input,
+select,
+textarea {
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+input,
+select,
+textarea {
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+body {
+  background-color: $body-bg;
+  color: $body-color;
+  font-family: $body-family;
+  font-size: $body-size;
+  font-style: normal;
+  font-weight: $body-weight;
+  line-height: $body-line-height;
+  overflow-x: hidden;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+label,
+p {
+  margin-bottom: $gap;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+    text-decoration: none;
+  }
+}
+
+.container {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}

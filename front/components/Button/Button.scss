@@ -1,0 +1,83 @@
+.button {
+  $self: &;
+  font-family: Arial;
+  font-size: 18px;
+  line-height: 1;
+  color: $white;
+  background-color: $black;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 20px;
+  min-height: 50px;
+  @extend %transition;
+
+  @include tablet {
+    font-size: 16px;
+  }
+
+  @include rwd(360) {
+    font-size: 14px;
+    min-height: 46px;
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &:hover {
+    background-color: $gray;
+  }
+
+  &--fluid {
+    width: 100%;
+  }
+
+  &--large {
+    padding: 15px 50px;
+  }
+
+  &--medium {
+    padding: 12px 30px;
+  }
+  &--small {
+    padding: 12px;
+  }
+
+  &--big {
+    min-height: 70px;
+  }
+
+  &--dark {
+    &::before {
+      display: none;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+    }
+  }
+
+  &--outline {
+    border: 1px solid $black;
+    color: $black;
+    background-color: transparent;
+
+    &:hover {
+      color: $white;
+      background-color: $black;
+    }
+  }
+
+  &--blue {
+    background-color: #4854af;
+    border: 1px solid #4854af;
+    font-size: 16px;
+
+    &:hover {
+      color: $white;
+      background-color: $blue;
+    }
+  }
+}
